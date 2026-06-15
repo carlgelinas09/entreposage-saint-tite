@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<!--
+  Site : Entreposage Saint-Tite  —  entreposagesttite.ca
+  Géré par Gestion Pilier · généré à partir du gabarit gabarit-site-entreposage
+  À faire avant mise en ligne : clé Web3Forms, logo PNG, favicon.
+-->
+<html lang="fr-CA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entreposage Saint-Tite — Entreposage chauffé et sécurisé</title>
+  <meta name="description" content="Entreposage Saint-Tite : 78 unités d'entreposage chauffées, éclairées et sous surveillance à Saint-Tite. Accès par carte magnétique, 7 h à 21 h, 7 jours sur 7. Réservez en ligne.">
+  <link rel="canonical" href="https://entreposagesttite.ca">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Entreposage Saint-Tite — Entreposage chauffé et sécurisé">
+  <meta property="og:description" content="78 unités chauffées et sécurisées à Saint-Tite. Réservez en ligne.">
+  <meta property="og:url" content="https://entreposagesttite.ca">
+  <meta property="og:image" content="https://entreposagesttite.ca/assets/img/og-image.jpg">
+  <meta property="og:locale" content="fr_CA">
+
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Données structurées : aide le référencement local (Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SelfStorage",
+    "name": "Entreposage Saint-Tite",
+    "image": "https://entreposagesttite.ca/assets/img/og-image.jpg",
+    "@id": "https://entreposagesttite.ca",
+    "url": "https://entreposagesttite.ca",
+    "telephone": "418-365-4170",
+    "email": "info@entreposagesttite.ca",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "111-B rue Saint-Arnaud",
+      "addressLocality": "Saint-Tite",
+      "addressRegion": "QC",
+      "postalCode": "G0X 3H0",
+      "addressCountry": "CA"
+    },
+    "openingHours": "Mo-Su 07:00-21:00",
+    "areaServed": "Saint-Tite"
+  }
+  </script>
+
+  <style>
+    :root{
+      --accent: #6e1928;
+      --accent2: #4e1018;
+      --gold: #d4a520;
+      --gold-light: #fdf6d6;
+      --bg: #f5f2ea;
+      --ink: #17181c;
+      --muted: #7a6b6e;
+      --surface: #ffffff;
+      --line: rgba(23,24,28,.10);
+      --radius: 16px;
+      --shadow: 0 1px 2px rgba(23,24,28,.06), 0 12px 32px rgba(23,24,28,.07);
+      --maxw: 1140px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Hanken Grotesk',system-ui,sans-serif;
+      color:var(--ink); background:var(--bg);
+      line-height:1.6; -webkit-font-smoothing:antialiased;
+    }
+    h1,h2,h3{font-family:'Fraunces',Georgia,serif; line-height:1.12; font-weight:600; letter-spacing:-.01em}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+    .eyebrow{
+      font-size:.8rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--accent); margin-bottom:14px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:9px;
+      font-family:'Hanken Grotesk',sans-serif; font-weight:600; font-size:1rem;
+      padding:14px 26px; border-radius:999px; border:1.5px solid transparent;
+      cursor:pointer; transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .btn-primary{background:var(--accent); color:#fff}
+    .btn-primary:hover{background:var(--accent2); transform:translateY(-2px); box-shadow:var(--shadow)}
+    .btn-ghost{background:transparent; color:var(--accent); border-color:var(--accent)}
+    .btn-ghost:hover{background:var(--accent); color:#fff}
+    .btn-gold{background:var(--gold); color:var(--ink)}
+    .btn-gold:hover{filter:brightness(1.05); transform:translateY(-2px)}
+
+    /* ---------- NAV ---------- */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background:color-mix(in srgb, var(--bg) 86%, transparent);
+      backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:72px}
+    .brand{display:flex; align-items:center; gap:12px; font-family:'Fraunces',serif; font-weight:600; font-size:1.18rem}
+    .brand .lock{width:34px; height:34px; flex:none}
+    .nav-links{display:flex; align-items:center; gap:30px}
+    .nav-links a{font-weight:500; font-size:.96rem; color:var(--muted); transition:color .15s}
+    .nav-links a:hover{color:var(--ink)}
+    .nav-cta{display:flex; align-items:center; gap:14px}
+    .nav-tel{font-weight:600; color:var(--accent); font-size:.96rem}
+    .burger{display:none; background:none; border:0; cursor:pointer}
+
+    /* ---------- HERO ---------- */
+    .hero{padding:84px 0 72px; position:relative; overflow:hidden}
+    .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center}
+    .hero h1{font-size:clamp(2.4rem,5vw,3.7rem); margin-bottom:20px}
+    .hero h1 em{font-style:normal; color:var(--accent); position:relative}
+    .hero p.lead{font-size:1.18rem; color:var(--muted); max-width:46ch; margin-bottom:28px}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px}
+    .chip{
+      display:inline-flex; align-items:center; gap:7px;
+      background:var(--gold-light); color:var(--accent2);
+      font-size:.88rem; font-weight:600; padding:8px 14px; border-radius:999px;
+    }
+    .hero-actions{display:flex; flex-wrap:wrap; gap:14px}
+    .stat-card{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:30px;
+    }
+    .stat-card h3{font-family:'Hanken Grotesk',sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:20px}
+    .stat-row{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+    .stat .num{font-family:'Fraunces',serif; font-size:2.4rem; font-weight:600; color:var(--gold); line-height:1}
+    .stat .lbl{font-size:.9rem; color:var(--muted); margin-top:4px}
+
+    /* ---------- SECTIONS ---------- */
+    section{padding:76px 0}
+    .section-head{max-width:62ch; margin-bottom:48px}
+    .section-head h2{font-size:clamp(1.9rem,3.5vw,2.6rem); margin-bottom:14px}
+    .section-head p{color:var(--muted); font-size:1.08rem}
+
+    /* ---------- AVANTAGES ---------- */
+    .features{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+    .feature{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+      padding:30px; transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .feature:hover{transform:translateY(-4px); box-shadow:var(--shadow)}
+    .feature .ic{
+      width:48px; height:48px; border-radius:12px; display:grid; place-items:center;
+      background:var(--gold-light); color:var(--accent); margin-bottom:18px;
+    }
+    .feature h3{font-size:1.22rem; margin-bottom:8px}
+    .feature p{color:var(--muted); font-size:.98rem}
+
+    /* ---------- TARIFS ---------- */
+    #tarifs{background:linear-gradient(180deg, transparent, color-mix(in srgb, var(--gold-light) 40%, transparent))}
+    .prices{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
+    .price{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+      padding:30px 26px; position:relative; display:flex; flex-direction:column;
+    }
+    .price.popular{border:2px solid var(--gold); box-shadow:var(--shadow)}
+    .price .tag-pop{
+      position:absolute; top:-12px; left:50%; transform:translateX(-50%);
+      background:var(--gold); color:var(--ink); font-size:.74rem; font-weight:700;
+      letter-spacing:.06em; text-transform:uppercase; padding:5px 14px; border-radius:999px;
+    }
+    .price .fmt{font-family:'Fraunces',serif; font-size:1.35rem; font-weight:600; margin-bottom:6px}
+    .price .desc{color:var(--muted); font-size:.92rem; min-height:42px; margin-bottom:18px}
+    .price .amount{font-family:'Fraunces',serif; font-size:2.5rem; font-weight:600; color:var(--accent); line-height:1}
+    .price .amount span{font-family:'Hanken Grotesk',sans-serif; font-size:.95rem; font-weight:500; color:var(--muted)}
+    .price .per{font-size:.84rem; color:var(--muted); margin-top:4px; margin-bottom:22px}
+    .price .btn{margin-top:auto; justify-content:center}
+
+    /* ---------- BÂTIMENTS ---------- */
+    .buildings{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+    .building{
+      border-radius:var(--radius); overflow:hidden; border:1px solid var(--line);
+      background:var(--surface);
+    }
+    .building .photo{
+      aspect-ratio:4/3; background:linear-gradient(135deg, var(--accent), var(--accent2));
+      display:grid; place-items:center; color:#fff; font-family:'Fraunces',serif; font-size:3rem;
+    }
+    .building .body{padding:24px}
+    .building h3{font-size:1.3rem; margin-bottom:8px}
+    .building p{color:var(--muted); font-size:.96rem; margin-bottom:14px}
+    .tags{display:flex; flex-wrap:wrap; gap:8px}
+    .tag{background:var(--gold-light); color:var(--accent2); font-size:.8rem; font-weight:600; padding:5px 11px; border-radius:999px}
+
+    /* ---------- PROCESSUS ---------- */
+    #processus{background:var(--accent); color:#fff}
+    #processus .section-head h2{color:#fff}
+    #processus .section-head p{color:rgba(255,255,255,.8)}
+    .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:22px}
+    .step{padding-top:8px}
+    .step .n{
+      font-family:'Fraunces',serif; font-size:1.1rem; font-weight:600; color:var(--ink);
+      width:44px; height:44px; border-radius:50%; background:var(--gold);
+      display:grid; place-items:center; margin-bottom:18px;
+    }
+    .step h3{font-size:1.18rem; margin-bottom:8px; color:#fff}
+    .step p{color:rgba(255,255,255,.78); font-size:.96rem}
+
+    /* ---------- FORMULAIRE ---------- */
+    .form-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:48px; align-items:start}
+    .form-card{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:34px;
+    }
+    .field{margin-bottom:18px}
+    .field label{display:block; font-weight:600; font-size:.92rem; margin-bottom:7px}
+    .field input, .field select, .field textarea{
+      width:100%; font-family:inherit; font-size:1rem; color:var(--ink);
+      padding:12px 14px; border:1.5px solid var(--line); border-radius:10px; background:#fff;
+      transition:border-color .15s;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--accent)}
+    .field textarea{resize:vertical; min-height:90px}
+    .row2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    .form-note{font-size:.84rem; color:var(--muted); margin-top:14px}
+    .form-intro ul{list-style:none; margin-top:22px}
+    .form-intro li{display:flex; gap:12px; align-items:flex-start; margin-bottom:16px; color:var(--muted)}
+    .form-intro li .ck{color:var(--gold); flex:none; margin-top:3px}
+
+    /* ---------- FAQ ---------- */
+    .faq{max-width:780px; margin:0 auto}
+    details{border-bottom:1px solid var(--line); padding:20px 0}
+    details summary{
+      cursor:pointer; font-family:'Fraunces',serif; font-weight:600; font-size:1.12rem;
+      list-style:none; display:flex; justify-content:space-between; align-items:center; gap:16px;
+    }
+    details summary::-webkit-details-marker{display:none}
+    details summary::after{content:'+'; font-size:1.5rem; color:var(--accent); font-family:'Hanken Grotesk',sans-serif; transition:transform .2s}
+    details[open] summary::after{transform:rotate(45deg)}
+    details p{color:var(--muted); margin-top:12px; font-size:.99rem}
+
+    /* ---------- CTA BANNER ---------- */
+    .cta-banner{background:var(--ink); color:#fff; border-radius:var(--radius); padding:54px; text-align:center}
+    .cta-banner h2{font-size:clamp(1.8rem,3.5vw,2.4rem); color:#fff; margin-bottom:14px}
+    .cta-banner p{color:rgba(255,255,255,.78); margin-bottom:26px; font-size:1.08rem}
+    .cta-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
+
+    /* ---------- CONTACT ---------- */
+    .contact-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:40px}
+    .contact-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px}
+    .contact-card .ic{width:42px; height:42px; border-radius:11px; background:var(--gold-light); color:var(--accent); display:grid; place-items:center; margin-bottom:16px}
+    .contact-card h3{font-family:'Hanken Grotesk',sans-serif; font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px}
+    .contact-card p{font-size:1.02rem; font-weight:500}
+    .map{border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); min-height:320px; background:var(--gold-light)}
+    .map iframe{width:100%; height:100%; min-height:320px; border:0; display:block}
+
+    /* ---------- FOOTER ---------- */
+    footer{background:var(--accent2); color:rgba(255,255,255,.82); padding:60px 0 30px}
+    .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; margin-bottom:44px}
+    footer h4{font-family:'Hanken Grotesk',sans-serif; color:#fff; font-size:.82rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:16px}
+    footer ul{list-style:none}
+    footer li{margin-bottom:10px; font-size:.95rem}
+    footer a:hover{color:#fff}
+    .foot-brand .brand{color:#fff; margin-bottom:14px}
+    .foot-brand p{font-size:.95rem; max-width:34ch}
+    .foot-bottom{border-top:1px solid rgba(255,255,255,.16); padding-top:24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:.88rem}
+    .pilier-credit{display:flex; align-items:center; gap:12px}
+    .pilier-bars{display:flex; gap:3px}
+    .pilier-bars span{width:5px; height:20px; border-radius:2px}
+    .pilier-bars span:nth-child(1){background:var(--gold)}
+    .pilier-bars span:nth-child(2){background:var(--ink)}
+    .pilier-bars span:nth-child(3){background:var(--gold)}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width:920px){
+      .hero-grid{grid-template-columns:1fr; gap:40px}
+      .features,.buildings,.steps,.contact-grid{grid-template-columns:repeat(2,1fr)}
+      .prices{grid-template-columns:repeat(2,1fr)}
+      .form-grid{grid-template-columns:1fr; gap:32px}
+      .foot-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:600px){
+      .nav-links{display:none}
+      .burger{display:block}
+      .features,.buildings,.steps,.prices,.contact-grid,.row2,.stat-row{grid-template-columns:1fr}
+      .foot-grid{grid-template-columns:1fr}
+      section{padding:56px 0}
+      .cta-banner{padding:36px 24px}
+    }
+    @media (prefers-reduced-motion:reduce){*{transition:none!important; scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand">
+        <!-- Remplacer ce SVG par <img src="assets/img/logo.png" ...> quand le logo client est reçu -->
+        <svg class="lock" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="4" y="10" width="16" height="11" rx="2" fill="#d4a520"/>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#6e1928" stroke-width="2" fill="none"/>
+        </svg>
+        Entreposage Saint-Tite
+      </a>
+      <div class="nav-links">
+        <a href="#avantages">Avantages</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#batiments">Bâtiments</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a href="tel:+14183654170" class="nav-tel">418-365-4170</a>
+        <a href="#reserver" class="btn btn-primary">Réserver</a>
+      </div>
+      <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display='flex'">☰</button>
+    </div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Entreposage à Saint-Tite</p>
+        <h1>De l'espace <em>sécurisé</em> et chauffé, quand vous en avez besoin.</h1>
+        <p class="lead">78 unités chauffées et sous surveillance, au cœur de Saint-Tite. Location mensuelle, sans engagement — réservez l'espace qu'il vous faut en quelques minutes.</p>
+        <div class="chips">
+          <span class="chip">✓ Chauffé &amp; éclairé</span>
+          <span class="chip">✓ Carte magnétique</span>
+          <span class="chip">✓ Caméras 24/7</span>
+          <span class="chip">✓ Sans engagement</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#reserver" class="btn btn-primary">Réserver une unité</a>
+          <a href="#tarifs" class="btn btn-ghost">Voir les tarifs</a>
+        </div>
+      </div>
+      <div class="stat-card">
+        <h3>L'installation en bref</h3>
+        <div class="stat-row">
+          <div class="stat"><div class="num">78</div><div class="lbl">unités disponibles</div></div>
+          <div class="stat"><div class="num">3</div><div class="lbl">bâtiments chauffés</div></div>
+          <div class="stat"><div class="num">24/7</div><div class="lbl">surveillance caméras</div></div>
+          <div class="stat"><div class="num">365</div><div class="lbl">jours d'accès / an</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== AVANTAGES ===================== -->
+  <section id="avantages">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Pourquoi nous choisir</p>
+        <h2>Un entreposage pensé pour votre tranquillité d'esprit.</h2>
+        <p>Des installations modernes, sécurisées et accessibles — sans les tracas.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><div class="ic">🔒</div><h3>Sécurité 24/7</h3><p>Accès contrôlé par carte magnétique et surveillance par caméras en tout temps.</p></div>
+        <div class="feature"><div class="ic">🌡️</div><h3>Chauffé &amp; éclairé</h3><p>Vos biens à l'abri du gel et de l'humidité, été comme hiver.</p></div>
+        <div class="feature"><div class="ic">🕖</div><h3>Accès facile</h3><p>7 h à 21 h, 7 jours sur 7. Entrez et sortez selon votre horaire.</p></div>
+        <div class="feature"><div class="ic">📅</div><h3>Location mensuelle</h3><p>Aucun contrat à long terme. Payez au mois, libérez quand vous voulez.</p></div>
+        <div class="feature"><div class="ic">📦</div><h3>Polyvalent</h3><p>Meubles, inventaire, véhicules saisonniers, archives — l'espace s'adapte.</p></div>
+        <div class="feature"><div class="ic">🤝</div><h3>Gestion professionnelle</h3><p>Un service attentif et une réponse rapide à vos questions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TARIFS ===================== -->
+  <section id="tarifs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Tarification</p>
+        <h2>Des prix clairs, sans surprise.</h2>
+        <p>Tous les tarifs sont mensuels, taxes en sus. Réservez le format qui vous convient.</p>
+      </div>
+      <div class="prices">
+        <!-- TARIF 1 -->
+        <div class="price">
+          <div class="fmt">5 × 10 pi</div>
+          <div class="desc">Idéal pour boîtes, meubles d'appoint et effets saisonniers.</div>
+          <div class="amount">80 <span>$</span></div>
+          <div class="per">par mois + taxes</div>
+          <a href="#reserver" class="btn btn-ghost">Réserver</a>
+        </div>
+        <!-- TARIF 2 (populaire) -->
+        <div class="price popular">
+          <span class="tag-pop">Le plus populaire</span>
+          <div class="fmt">10 × 10 pi</div>
+          <div class="desc">Le format polyvalent : contenu d'un 4½ ou petit inventaire.</div>
+          <div class="amount">115 <span>$</span></div>
+          <div class="per">par mois + taxes</div>
+          <a href="#reserver" class="btn btn-primary">Réserver</a>
+        </div>
+        <!-- TARIF 3 -->
+        <div class="price">
+          <div class="fmt">10 × 20 pi</div>
+          <div class="desc">Grand volume : maison complète, marchandise ou véhicule.</div>
+          <div class="amount">195 <span>$</span></div>
+          <div class="per">par mois + taxes</div>
+          <a href="#reserver" class="btn btn-ghost">Réserver</a>
+        </div>
+        <!-- TARIF 4 -->
+        <div class="price">
+          <div class="fmt">Extérieur (véhicules)</div>
+          <div class="desc">Espace extérieur pour véhicules récréatifs et saisonniers.</div>
+          <div class="amount">25 <span>$</span></div>
+          <div class="per">à partir de · + taxes</div>
+          <a href="#reserver" class="btn btn-ghost">Réserver</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BÂTIMENTS ===================== -->
+  <section id="batiments">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Nos installations</p>
+        <h2>3 bâtiments, une seule promesse : la sécurité.</h2>
+        <p>Des unités chauffées et sous surveillance, réparties sur trois bâtiments accessibles toute l'année.</p>
+      </div>
+      <div class="buildings">
+        <div class="building">
+          <div class="photo">A</div>
+          <div class="body"><h3>Bâtiment A</h3><p>Environ 26 unités chauffées, parfaites pour les formats compacts et intermédiaires.</p>
+            <div class="tags"><span class="tag">Chauffé</span><span class="tag">Carte magnétique</span></div>
+          </div>
+        </div>
+        <div class="building">
+          <div class="photo">B</div>
+          <div class="body"><h3>Bâtiment B</h3><p>Environ 26 unités sous surveillance, accès par carte magnétique en tout temps.</p>
+            <div class="tags"><span class="tag">Chauffé</span><span class="tag">Caméras 24/7</span></div>
+          </div>
+        </div>
+        <div class="building">
+          <div class="photo">C</div>
+          <div class="body"><h3>Bâtiment C</h3><p>Environ 26 unités, incluant nos plus grands formats 10 × 20.</p>
+            <div class="tags"><span class="tag">Chauffé</span><span class="tag">Grands formats</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESSUS ===================== -->
+  <section id="processus">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow" style="color:var(--gold)">Comment ça marche</p>
+        <h2>Quatre étapes, et c'est réglé.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>Choisissez</h3><p>Sélectionnez le format d'unité qui répond à vos besoins.</p></div>
+        <div class="step"><div class="n">2</div><h3>Réservez</h3><p>Remplissez le formulaire en ligne en deux minutes.</p></div>
+        <div class="step"><div class="n">3</div><h3>Confirmez</h3><p>On vous contacte pour finaliser et remettre votre carte d'accès.</p></div>
+        <div class="step"><div class="n">4</div><h3>Emménagez</h3><p>Accédez à votre unité 7 h à 21 h, 7 jours sur 7.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RÉSERVATION EN LIGNE (Anémone) ===================== -->
+  <section id="reserver">
+    <div class="wrap" style="max-width:760px">
+      <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto; margin-bottom:32px">
+        <p class="eyebrow">Réservation en ligne</p>
+        <h2>Réservez votre unité en quelques minutes.</h2>
+        <p>Choisissez votre format, complétez votre dossier et confirmez — en ligne, en temps réel.</p>
+      </div>
+
+      <div class="form-card" style="text-align:center">
+        <!--
+          ════════════════════════════════════════════════════════════════════
+          BRANCHEMENT DE LA RÉSERVATION ANÉMONE
+          Selon ce que Rocksoft fournit, choisir UNE des deux options :
+
+          OPTION A — LIEN ou SOUS-DOMAINE  (activée par défaut ci-dessous)
+            Remplacer {{ANEMONE_RESERVATION_URL}} par l'adresse de la page de
+            réservation fournie par Rocksoft. C'est la seule modification requise.
+
+          OPTION B — WIDGET / IFRAME À INTÉGRER
+            1. Retirer le bloc <a> du bouton ci-dessous.
+            2. Décommenter le bloc <iframe> et y coller le code de Rocksoft.
+          ════════════════════════════════════════════════════════════════════
+        -->
+
+        <p style="color:var(--muted); margin-bottom:26px">
+          Notre plateforme sécurisée vous permet de réserver votre espace, de
+          remplir votre dossier et de payer en ligne, en tout temps.
+        </p>
+
+        <!-- OPTION A : lien / sous-domaine -->
+        <a href="{{ANEMONE_RESERVATION_URL}}" target="_blank" rel="noopener"
+           class="btn btn-primary" style="font-size:1.1rem; padding:16px 36px">
+          Réserver maintenant →
+        </a>
+
+        <!-- OPTION B : widget / iframe (décommenter et coller le code Rocksoft, puis retirer le bouton ci-dessus)
+        <div style="margin-top:8px">
+          <iframe src="COLLER_URL_OU_CODE_ROCKSOFT_ICI" width="100%" height="800"
+                  style="border:0;" loading="lazy" title="Réservation — Entreposage Saint-Tite"></iframe>
+        </div>
+        -->
+
+        <ul style="list-style:none; margin-top:30px; text-align:left; display:inline-block">
+          <li style="display:flex; gap:10px; margin-bottom:11px; color:var(--muted)"><span style="color:var(--gold)">✓</span> Réservation en temps réel, sans engagement à long terme</li>
+          <li style="display:flex; gap:10px; margin-bottom:11px; color:var(--muted)"><span style="color:var(--gold)">✓</span> Contrat et paiement sécurisés en ligne</li>
+          <li style="display:flex; gap:10px; color:var(--muted)"><span style="color:var(--gold)">✓</span> Accès par carte magnétique dès la confirmation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq" style="background:color-mix(in srgb, var(--gold-light) 35%, transparent)">
+    <div class="wrap">
+      <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto">
+        <p class="eyebrow">Questions fréquentes</p>
+        <h2>Tout ce qu'il faut savoir.</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Quelles sont les heures d'accès ?</summary><p>L'accès est possible 7 h à 21 h, 7 jours sur 7, 365 jours par année, grâce à votre carte magnétique personnelle.</p></details>
+        <details><summary>Les unités sont-elles chauffées ?</summary><p>Oui. Tous nos bâtiments sont chauffés et éclairés, ce qui protège vos biens du gel et de l'humidité toute l'année.</p></details>
+        <details><summary>Y a-t-il un engagement minimum ?</summary><p>Non. La location est mensuelle, sans contrat à long terme. Vous libérez l'unité quand vous le souhaitez en nous avisant.</p></details>
+        <details><summary>Comment fonctionne la réservation ?</summary><p>Cliquez sur « Réserver » pour accéder à notre plateforme de réservation en ligne : choisissez votre format d'unité, complétez votre dossier et payez en ligne. Votre accès est confirmé sans délai.</p></details>
+        <details><summary>Quels modes de paiement acceptez-vous ?</summary><p>Le paiement se fait en ligne par carte de crédit, de façon sécurisée, au moment de la réservation.</p></details>
+        <details><summary>Puis-je entreposer un véhicule ?</summary><p>Oui, des espaces extérieurs sont offerts pour les véhicules saisonniers, à partir de 25 $ par mois plus taxes.</p></details>
+        <details><summary>Mes biens sont-ils en sécurité ?</summary><p>Accès contrôlé par carte magnétique et surveillance par caméras 24 h sur 24. Pensez tout de même à assurer vos biens de grande valeur.</p></details>
+        <details><summary>Où êtes-vous situés ?</summary><p>Au 111-B rue Saint-Arnaud, Saint-Tite, QC  G0X 3H0. Voir la carte dans la section Contact.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BANNER ===================== -->
+  <section>
+    <div class="wrap">
+      <div class="cta-banner">
+        <h2>Prêt à libérer de l'espace ?</h2>
+        <p>Réservez votre unité en ligne ou appelez-nous directement.</p>
+        <div class="cta-actions">
+          <a href="#reserver" class="btn btn-gold">Réserver une unité</a>
+          <a href="tel:+14183654170" class="btn btn-ghost" style="color:#fff; border-color:rgba(255,255,255,.5)">418-365-4170</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Nous joindre</p>
+        <h2>On est là pour vous aider.</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card"><div class="ic">📍</div><h3>Adresse</h3><p>111-B rue Saint-Arnaud<br>Saint-Tite, QC  G0X 3H0</p></div>
+        <div class="contact-card"><div class="ic">📞</div><h3>Téléphone</h3><p><a href="tel:+14183654170">418-365-4170</a></p></div>
+        <div class="contact-card"><div class="ic">✉️</div><h3>Courriel</h3><p><a href="mailto:info@entreposagesttite.ca">info@entreposagesttite.ca</a></p></div>
+        <div class="contact-card"><div class="ic">🕖</div><h3>Heures d'accès</h3><p>7 h à 21 h, 7 jours sur 7</p></div>
+      </div>
+      <div class="form-card" style="max-width:620px; margin:0 auto 28px">
+        <h3 style="font-family:'Fraunces',serif; font-size:1.4rem; margin-bottom:6px">Une question?</h3>
+        <p style="color:var(--muted); margin-bottom:18px; font-size:.96rem">Écrivez-nous, on vous répond rapidement. Pour réserver une unité, utilisez plutôt le bouton « Réserver ».</p>
+        <!--
+          Formulaire de CONTACT (questions générales) — Web3Forms, gratuit, sans backend.
+          Remplacer VOTRE_CLE_WEB3FORMS_ICI par la clé générée sur web3forms.com avec info@entreposagesttite.ca.
+          Ce formulaire ne sert PAS aux réservations (celles-ci passent par Anémone).
+        -->
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS_ICI">
+          <input type="hidden" name="subject" value="Question — site Entreposage Saint-Tite">
+          <input type="hidden" name="from_name" value="Site Entreposage Saint-Tite">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="row2">
+            <div class="field"><label for="c-nom">Nom</label><input id="c-nom" name="nom" type="text" required></div>
+            <div class="field"><label for="c-courriel">Courriel</label><input id="c-courriel" name="courriel" type="email" required></div>
+          </div>
+          <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center">Envoyer</button>
+          <p class="form-note">Vos renseignements servent uniquement à répondre à votre demande, conformément à la <em>Loi 25</em>.</p>
+        </form>
+      </div>
+      <div class="map">
+        <!-- Remplacer par l'iframe Google Maps réelle. Voir GUIDE-GENERATION.md, section Carte. -->
+        <iframe src="https://maps.google.com/maps?q=111-B+rue+Saint-Arnaud,+Saint-Tite,+QC+G0X+3H0&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte — Entreposage Saint-Tite"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <div class="brand">
+            <svg class="lock" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="11" rx="2" fill="#d4a520"/>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#fff" stroke-width="2" fill="none"/>
+            </svg>
+            Entreposage Saint-Tite
+          </div>
+          <p>Entreposage chauffé, sécurisé et accessible à Saint-Tite.</p>
+        </div>
+        <div><h4>Navigation</h4><ul>
+          <li><a href="#avantages">Avantages</a></li>
+          <li><a href="#tarifs">Tarifs</a></li>
+          <li><a href="#batiments">Bâtiments</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul></div>
+        <div><h4>Réserver</h4><ul>
+          <li><a href="#reserver">Formulaire en ligne</a></li>
+          <li><a href="tel:+14183654170">418-365-4170</a></li>
+          <li><a href="mailto:info@entreposagesttite.ca">info@entreposagesttite.ca</a></li>
+        </ul></div>
+        <div><h4>Coordonnées</h4><ul>
+          <li>111-B rue Saint-Arnaud</li>
+          <li>Saint-Tite, QC  G0X 3H0</li>
+          <li>7 h à 21 h, 7 jours sur 7</li>
+        </ul></div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 Entreposage Saint-Tite. Tous droits réservés.</span>
+        <a class="pilier-credit" href="https://gestionpilier.ca" target="_blank" rel="noopener">
+          <span class="pilier-bars"><span></span><span></span><span></span></span>
+          Site géré par <strong style="color:#fff">&nbsp;Gestion Pilier</strong>&nbsp;— Service immobilier clé en main · Shawinigan, QC
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
