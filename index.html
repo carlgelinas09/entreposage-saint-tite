@@ -100,15 +100,16 @@
       backdrop-filter:saturate(140%) blur(10px);
       border-bottom:1px solid var(--line);
     }
-    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:72px}
-    .brand{display:flex; align-items:center; gap:12px; font-family:'Fraunces',serif; font-weight:600; font-size:1.18rem}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:72px; position:relative}
+    .brand{display:flex; align-items:center; gap:12px; font-family:'Fraunces',serif; font-weight:600; font-size:1.18rem; white-space:nowrap}
     .brand .lock{width:34px; height:34px; flex:none}
     .nav-links{display:flex; align-items:center; gap:30px}
     .nav-links a{font-weight:500; font-size:.96rem; color:var(--muted); transition:color .15s}
     .nav-links a:hover{color:var(--ink)}
     .nav-cta{display:flex; align-items:center; gap:14px}
     .nav-tel{font-weight:600; color:var(--accent); font-size:.96rem}
-    .burger{display:none; background:none; border:0; cursor:pointer}
+    .nav-mobile-cta{display:none}
+    .burger{display:none; background:none; border:0; cursor:pointer; font-size:1.7rem; line-height:1; color:var(--accent); padding:6px 4px}
 
     /* ---------- HERO ---------- */
     .hero{padding:84px 0 72px; position:relative; overflow:hidden}
@@ -275,13 +276,26 @@
       .form-grid{grid-template-columns:1fr; gap:32px}
       .foot-grid{grid-template-columns:1fr 1fr}
     }
-    @media (max-width:600px){
-      .nav-links{display:none}
+    @media (max-width:820px){
       .burger{display:block}
+      .nav-cta{display:none}
+      .nav-links{
+        display:none; position:absolute; top:100%; left:0; right:0;
+        flex-direction:column; align-items:stretch; gap:0;
+        background:var(--bg); border-bottom:1px solid var(--line);
+        box-shadow:var(--shadow); padding:6px 0;
+      }
+      .nav.open .nav-links{display:flex}
+      .nav-links a{padding:14px 6px; font-size:1.05rem; border-bottom:1px solid var(--line)}
+      .nav-links a:last-child{border-bottom:0}
+      .nav-mobile-cta{display:block; font-weight:600; color:var(--accent)!important}
+    }
+    @media (max-width:600px){
       .features,.buildings,.steps,.prices,.contact-grid,.row2,.stat-row{grid-template-columns:1fr}
       .foot-grid{grid-template-columns:1fr}
       section{padding:56px 0}
       .cta-banner{padding:36px 24px}
+      .brand{font-size:1.05rem}
     }
     @media (prefers-reduced-motion:reduce){*{transition:none!important; scroll-behavior:auto}}
   </style>
@@ -305,12 +319,15 @@
         <a href="#batiments">Bâtiments</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
+        <a href="#reserver" class="nav-mobile-cta">Réserver une unité</a>
+        <a href="tel:+14183654170" class="nav-mobile-cta">📞 418-365-4170</a>
       </div>
       <div class="nav-cta">
         <a href="tel:+14183654170" class="nav-tel">418-365-4170</a>
         <a href="#reserver" class="btn btn-primary">Réserver</a>
       </div>
-      <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display='flex'">☰</button>
+      <button class="burger" aria-label="Menu" aria-expanded="false"
+              onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">☰</button>
     </div>
   </nav>
 
@@ -627,5 +644,16 @@
     </div>
   </footer>
 
+  <script>
+    // Ferme le menu mobile quand on tape un lien
+    document.querySelectorAll('.nav-links a').forEach(function(a){
+      a.addEventListener('click', function(){
+        var n = document.querySelector('.nav');
+        n.classList.remove('open');
+        var b = n.querySelector('.burger');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 </body>
 </html>
