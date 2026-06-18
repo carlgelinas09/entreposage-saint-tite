@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Entreposage Saint-Tite — Entreposage chauffé et sécurisé</title>
-  <meta name="description" content="Entreposage Saint-Tite : 78 unités d'entreposage chauffées, éclairées et sous surveillance à Saint-Tite. Accès par carte magnétique, 7 h à 21 h, 7 jours sur 7. Réservez en ligne.">
+  <meta name="description" content="Entreposage Saint-Tite : 78 unités chauffées, éclairées et sous surveillance, plus location de conteneurs (sur place ou livrés) et remisage hivernal pour VR et roulottes. Réservez en ligne.">
   <link rel="canonical" href="https://entreposagesttite.ca">
 
   <!-- Open Graph -->
@@ -297,6 +297,37 @@
       .cta-banner{padding:36px 24px}
       .brand{font-size:1.05rem}
     }
+    /* ---------- SERVICES ADDITIONNELS ---------- */
+    .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+    .service-card{
+      background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+      padding:28px; display:flex; flex-direction:column;
+    }
+    .service-card .ic{
+      width:48px; height:48px; border-radius:12px; display:grid; place-items:center;
+      background:var(--gold-light); font-size:1.4rem; margin-bottom:16px;
+    }
+    .service-card h3{font-size:1.22rem; margin-bottom:8px}
+    .service-card p.desc{color:var(--muted); font-size:.96rem; margin-bottom:16px; flex:1}
+    .service-card .svc-price{font-family:'Fraunces',serif; font-weight:600; color:var(--accent); font-size:1.15rem; margin-bottom:4px}
+    .service-card .svc-note{font-size:.82rem; color:var(--muted); margin-bottom:16px}
+    .calc-box{
+      background:var(--gold-light); border-radius:12px; padding:16px; margin-bottom:16px;
+    }
+    .calc-box label{display:block; font-size:.84rem; font-weight:600; color:var(--accent2); margin-bottom:8px}
+    .calc-row{display:flex; align-items:center; gap:10px}
+    .calc-row input{
+      width:90px; font-family:inherit; font-size:1rem; padding:9px 11px;
+      border:1.5px solid var(--line); border-radius:8px; color:var(--ink);
+    }
+    .calc-row input:focus{outline:none; border-color:var(--accent)}
+    .calc-row span{font-size:.88rem; color:var(--muted)}
+    .calc-result{font-size:.92rem; color:var(--ink); margin-top:10px; min-height:20px}
+    .calc-result strong{color:var(--accent); font-family:'Fraunces',serif}
+
+    @media (max-width:920px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:600px){.services-grid{grid-template-columns:1fr}}
+
     @media (prefers-reduced-motion:reduce){*{transition:none!important; scroll-behavior:auto}}
   </style>
 </head>
@@ -322,6 +353,7 @@
         <a href="#avantages">Avantages</a>
         <a href="#tarifs">Tarifs</a>
         <a href="#batiments">Bâtiments</a>
+        <a href="#services">Services</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
         <a href="#reserver" class="nav-mobile-cta">Réserver une unité</a>
@@ -424,9 +456,9 @@
         <!-- TARIF 4 -->
         <div class="price">
           <div class="fmt">Extérieur (véhicules)</div>
-          <div class="desc">Espace extérieur pour véhicules récréatifs et saisonniers.</div>
-          <div class="amount">25 <span>$</span></div>
-          <div class="per">à partir de · + taxes</div>
+          <div class="desc">Espace extérieur pour véhicules récréatifs, roulottes et remisage saisonnier.</div>
+          <div class="amount" style="font-size:1.9rem">2,50 $ – 3,00 $</div>
+          <div class="per">par pied linéaire / mois · + taxes</div>
           <a href="#reserver" class="btn btn-ghost">Réserver</a>
         </div>
       </div>
@@ -460,6 +492,60 @@
             <div class="tags"><span class="tag">Chauffé</span><span class="tag">Grands formats</span></div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ADDITIONNELS ===================== -->
+  <section id="services" style="background:color-mix(in srgb, var(--gold-light) 35%, transparent)">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Au-delà de l'entreposage</p>
+        <h2>D'autres façons de libérer de l'espace.</h2>
+        <p>Conteneurs sur place ou livrés chez vous, et remisage hivernal pour votre VR ou votre roulotte.</p>
+      </div>
+      <div class="services-grid">
+
+        <!-- Conteneur sur place -->
+        <div class="service-card">
+          <div class="ic">📦</div>
+          <h3>Conteneur sur notre terrain</h3>
+          <p class="desc">Louez un conteneur fixe directement sur notre terrain — une alternative économique à une unité fermée, avec le même accès sécurisé.</p>
+          <div class="svc-price">175 $ /mois</div>
+          <div class="svc-note">Conteneur de 20 pieds, taxes en sus</div>
+          <a href="#contact" class="btn btn-ghost" style="justify-content:center">Nous écrire</a>
+        </div>
+
+        <!-- Conteneur livré -->
+        <div class="service-card">
+          <div class="ic">🚚</div>
+          <h3>Conteneur livré chez vous</h3>
+          <p class="desc">Rénovations, déménagement, désencombrement : on livre le conteneur directement chez vous, vous le remplissez à votre rythme.</p>
+          <div class="svc-price">175 $ /mois</div>
+          <div class="svc-note">Conteneur de 20 pieds · transport à votre charge.</div>
+          <div class="svc-note">Ou +10 % sur la facture si notre équipe s'occupe de la livraison et de la reprise — écrivez-nous pour vérifier la zone desservie.</div>
+          <a href="#contact" class="btn btn-ghost" style="justify-content:center">Demander une soumission</a>
+        </div>
+
+        <!-- Remisage hivernal VR / roulottes -->
+        <div class="service-card">
+          <div class="ic">❄️</div>
+          <h3>Remisage hivernal — VR &amp; roulottes</h3>
+          <p class="desc">Protégez votre véhicule récréatif tout l'hiver dans un espace extérieur sécurisé et surveillé, tarifé selon sa longueur.</p>
+
+          <div class="calc-box">
+            <label for="vr-len">Estimez votre tarif mensuel</label>
+            <div class="calc-row">
+              <input type="number" id="vr-len" min="1" max="60" step="1" placeholder="24" inputmode="numeric">
+              <span>pieds de longueur</span>
+            </div>
+            <div class="calc-result" id="vr-result">Entrez la longueur pour voir l'estimation.</div>
+          </div>
+
+          <div class="svc-note" style="margin-bottom:16px">2,50 $ à 3,00 $ / pied linéaire / mois + taxes</div>
+          <a href="#reserver" class="btn btn-primary" style="justify-content:center">Réserver mon espace</a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -545,7 +631,9 @@
         <details><summary>Y a-t-il un engagement minimum ?</summary><p>Non. La location est mensuelle, sans contrat à long terme. Vous libérez l'unité quand vous le souhaitez en nous avisant.</p></details>
         <details><summary>Comment fonctionne la réservation ?</summary><p>Cliquez sur « Réserver » pour accéder à notre plateforme de réservation en ligne : choisissez votre format d'unité, complétez votre dossier et payez en ligne. Votre accès est confirmé sans délai.</p></details>
         <details><summary>Quels modes de paiement acceptez-vous ?</summary><p>Le paiement se fait en ligne par carte de crédit, de façon sécurisée, au moment de la réservation.</p></details>
-        <details><summary>Puis-je entreposer un véhicule ?</summary><p>Oui, des espaces extérieurs sont offerts pour les véhicules saisonniers, à partir de 25 $ par mois plus taxes.</p></details>
+        <details><summary>Puis-je entreposer un véhicule ?</summary><p>Oui, des espaces extérieurs sont offerts pour véhicules, roulottes et VR, facturés au pied linéaire entre 2,50 $ et 3,00 $ par mois, taxes en sus.</p></details>
+        <details><summary>Offrez-vous la location de conteneurs ?</summary><p>Oui, des conteneurs de 20 pieds à 175 $ par mois, taxes en sus — sur notre terrain ou livrés chez vous. Pour la livraison, vous pouvez assurer le transport vous-même au même prix, ou nous laisser nous en occuper pour 10 % de plus sur la facture.</p></details>
+        <details><summary>Faites-vous le remisage hivernal pour VR et roulottes ?</summary><p>Oui, dans un espace extérieur sécurisé et surveillé, tarifé selon la longueur de votre véhicule.</p></details>
         <details><summary>Mes biens sont-ils en sécurité ?</summary><p>Accès contrôlé par carte magnétique et surveillance par caméras 24 h sur 24. Pensez tout de même à assurer vos biens de grande valeur.</p></details>
         <details><summary>Où êtes-vous situés ?</summary><p>Au 111-B rue Saint-Arnaud, Saint-Tite, QC  G0X 3H0. Voir la carte dans la section Contact.</p></details>
       </div>
@@ -655,6 +743,23 @@
   </footer>
 
   <script>
+    // Calculateur de prix — remisage hivernal VR/roulottes (au pied linéaire)
+    (function(){
+      var input = document.getElementById('vr-len');
+      var result = document.getElementById('vr-result');
+      if (!input || !result) return;
+      input.addEventListener('input', function(){
+        var len = parseFloat(input.value);
+        if (!len || len <= 0) {
+          result.textContent = 'Entrez la longueur pour voir l\'estimation.';
+          return;
+        }
+        var low = Math.round(len * 2.50);
+        var high = Math.round(len * 3.00);
+        result.innerHTML = 'Estimation : <strong>' + low + ' $ à ' + high + ' $</strong> par mois + taxes';
+      });
+    })();
+
     // Ferme le menu mobile quand on tape un lien
     document.querySelectorAll('.nav-links a').forEach(function(a){
       a.addEventListener('click', function(){
