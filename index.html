@@ -531,7 +531,7 @@
         <div class="service-card">
           <div class="ic">🌡️</div>
           <h3>Remisage hivernal intérieur — VR &amp; roulottes</h3>
-          <p class="desc">Protégez votre véhicule récréatif tout l'hiver dans un espace intérieur chauffé et sécurisé, pour toute la saison.</p>
+          <p class="desc">Protégez votre véhicule récréatif tout l'hiver dans un espace intérieur sécurisé, pour toute la saison.</p>
 
           <div class="calc-box">
             <label for="vr-len">Estimez votre tarif pour la saison</label>
@@ -542,7 +542,7 @@
             <div class="calc-result" id="vr-result">Entrez la longueur pour voir l'estimation.</div>
           </div>
 
-          <div class="svc-note" style="margin-bottom:16px">60 $ / pied linéaire pour la période hivernale + taxes</div>
+          <div class="svc-note" style="margin-bottom:16px">30 $ / pied linéaire pour la période hivernale + taxes</div>
           <a href="#reserver" class="btn btn-primary" style="justify-content:center">Réserver mon espace</a>
         </div>
 
@@ -633,8 +633,8 @@
         <details><summary>Quels modes de paiement acceptez-vous ?</summary><p>Le paiement se fait en ligne par carte de crédit, de façon sécurisée, au moment de la réservation.</p></details>
         <details><summary>Puis-je entreposer un véhicule ?</summary><p>Oui, des espaces extérieurs sont offerts pour véhicules, roulottes et VR, facturés au pied linéaire entre 2,50 $ et 3,00 $ par mois, taxes en sus.</p></details>
         <details><summary>Offrez-vous la location de conteneurs ?</summary><p>Oui, des conteneurs de 20 pieds à 175 $ par mois, taxes en sus — sur notre terrain ou livrés chez vous, sans limite de distance. Vous pouvez organiser le transport vous-même au même prix, ou nous laisser coordonner la livraison avec notre transporteur partenaire : vous payez alors le coût réel du transport plus 10 % de frais de coordination.</p></details>
-        <details><summary>Faites-vous le remisage hivernal pour VR et roulottes ?</summary><p>Oui, dans un espace intérieur chauffé et sécurisé, au tarif de 60 $ par pied linéaire pour toute la saison hivernale, taxes en sus. Un espace extérieur non chauffé est aussi disponible — voir la section Tarifs.</p></details>
-        <details><summary>Quelle est la différence entre l'espace extérieur et le remisage hivernal intérieur ?</summary><p>L'espace extérieur (section Tarifs) est facturé mensuellement, de 2,50 $ à 3,00 $ par pied linéaire. Le remisage hivernal intérieur est chauffé et facturé en un seul montant pour toute la saison, à 60 $ par pied linéaire.</p></details>
+        <details><summary>Faites-vous le remisage hivernal pour VR et roulottes ?</summary><p>Oui, dans un espace intérieur sécurisé, au tarif de 30 $ par pied linéaire pour toute la saison hivernale, taxes en sus. Un espace extérieur non chauffé est aussi disponible — voir la section Tarifs.</p></details>
+        <details><summary>Quelle est la différence entre l'espace extérieur et le remisage hivernal intérieur ?</summary><p>L'espace extérieur (section Tarifs) est facturé mensuellement, de 2,50 $ à 3,00 $ par pied linéaire. Le remisage hivernal intérieur est facturé en un seul montant pour toute la saison, à 30 $ par pied linéaire.</p></details>
         <details><summary>Mes biens sont-ils en sécurité ?</summary><p>Accès contrôlé par carte magnétique et surveillance par caméras 24 h sur 24. Pensez tout de même à assurer vos biens de grande valeur.</p></details>
         <details><summary>Où êtes-vous situés ?</summary><p>Au 111-B rue Saint-Arnaud, Saint-Tite, QC  G0X 3H0. Voir la carte dans la section Contact.</p></details>
       </div>
@@ -755,7 +755,7 @@
           result.textContent = 'Entrez la longueur pour voir l\'estimation.';
           return;
         }
-        var total = Math.round(len * 60);
+        var total = Math.round(len * 30);
         result.innerHTML = 'Estimation : <strong>' + total + ' $</strong> pour la saison hivernale + taxes';
       });
     })();
